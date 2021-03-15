@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title', 'About')
+@section('title', 'Guru')
 @section('content')
-<h1>Ini Halaman About</h1>
+<h1>Ini Halaman Guru</h1>
 @endsection
