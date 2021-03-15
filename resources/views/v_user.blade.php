@@ -1,7 +1,7 @@
 @extends('layout.v_template')
-@section('title', 'Home')
+@section('title', 'User')
 @section('content')
     <div>
-        <h1>Halaman Home</h1>
+        <h1>Halaman User</h1>
     </div>
 @endsection

@@ -16,8 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('v_home');
 });
-
-
-Route::view('/guru', 'v_guru');
-Route::view('/siswa', 'v_siswa');
-Route::view('/about', 'v_about');
+Route::get('/siswa', function () {
+    return view('v_siswa');
+});
+Route::get('/guru', function () {
+    return view('v_guru');
+});
+Route::get('/user', function () {
+    return view('v_user');
+});
