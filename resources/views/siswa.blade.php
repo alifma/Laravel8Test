@@ -8,5 +8,6 @@
 </head>
 <body>
   <h1>Halaman Siswa</h1>  
+  <h2>Nama : {{$nama_siswa}}</h2>
 </body>
 </html>

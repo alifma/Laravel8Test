@@ -16,11 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/siswa', function () {
-    return view('siswa');
+// ? dipakai buat ternary operator
+Route::get('/siswa/{nama_siswa?}', function ($nama_siswa = 'None') {
+    return view('siswa', [
+        'nama_siswa' => $nama_siswa 
+    ]);
 });
 // Langsung Menampilkan, kalau tanpa controller
-Route::view('/about', 'about');
+Route::view('/about', 'v_about',[
+    'nama' => 'Alif Maulana A',
+    'alamat' => 'Pandeglang, Banten',
+    'data_tag' => '<h1> Ini Tagnya dari variabel Data</h1>'
+]);
 
 Route::view('/admin','admin.v_index');
 Route::view('/guru','admin.guru.v_dataguru');
