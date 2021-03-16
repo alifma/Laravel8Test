@@ -1,12 +1,33 @@
 @extends('layout.v_template')
 @section('title', 'Guru')
 @section('content')
-    <div>
-        {{-- <h1>Halaman Guru</h1> --}}
-        {{-- {{ dd($guru)}} --}}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Mapel</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $i = 1 ?>
         @foreach ($guru as $data)
-            <h1>Nama : {{$data['nama']}}</h1>
-            <h1>NIM : {{$data['nim']}}</h1>
+        <tr>
+            <td>{{$i++}}</td>
+            <td>{{$data->nim}}</td>
+            <td>{{$data->nama}}</td>
+            <td>{{$data->mapel}}</td>
+            <td><img src="{{url('img/'.$data->image)}}" alt="" class="img-fluid" style="height:100px" srcset=""></td>
+            <td>
+                <button class="btn-sm btn btn-info"> Detail </button>
+                <button class="btn-sm btn btn-warning"> Edit </button>
+                <button class="btn-sm btn btn-danger"> Hapus </button>
+            </td>
+        </tr>
         @endforeach
-    </div>
+    </tbody>
+</table>
 @endsection
