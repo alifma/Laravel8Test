@@ -52,4 +52,42 @@ class GuruController extends Controller
         $this->GuruModel->addData($data);
         return redirect()->route('guru')->with('pesan', 'Tambah Data Sukses');
     }
+
+    public function edit ($id) {
+        if (!$this->GuruModel->getDetail($id)) {
+            abort(404);
+        }
+        $data = [
+            'guru' => $this->GuruModel->getDetail($id),
+        ];
+        return view('v_guruEdit', $data);
+    }
+
+    public function update($id) {
+        Request()->validate ([
+            'nama' => 'required',
+            'mapel' => 'required',
+            'image' => 'mimes:jpg,jpeg,bmp,png|max:1024',
+        ]);
+        if(Request()->image <> ""){
+            $file = Request()->image;
+            $fileName = Request()->nim.'.'.$file->extension();
+            $file->move(public_path('img'),$fileName);
+            $data = [
+                'nim' => Request()->nim,
+                'nama' => Request()->nama,
+                'mapel' => Request()->mapel,
+                'image' => $fileName
+            ];
+        } else {
+            $data = [
+                'nim' => Request()->nim,
+                'nama' => Request()->nama,
+                'mapel' => Request()->mapel
+            ];
+        }
+        $this->GuruModel->updateData($id, $data);
+        return redirect()->route('guru')->with('pesan', 'Update Data Sukses');
+    }
+
 }

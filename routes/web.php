@@ -21,6 +21,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/guru', [GuruController::class, 'index'])->name('guru');
 Route::get('/guru/detail/{id}', [GuruController::class, 'detail']);
 Route::get('/guru/add', [GuruController::class, 'add']);
+Route::get('/guru/edit/{id}', [GuruController::class, 'edit']);
+Route::post('/guru/update/{id}', [GuruController::class, 'update']);
 Route::post('/guru/insert', [GuruController::class, 'insert']);
 Route::get('/siswa', [SiswaController::class, 'index']);
 Route::get('/user', [UserController::class, 'index']);

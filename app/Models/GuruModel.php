@@ -17,4 +17,7 @@ class GuruModel extends Model
     public function addData ($data) {
         DB::table('tbl_guru')->insert($data);
     }
+    public function updateData ($id, $data) {
+        DB::table('tbl_guru')->where('id', $id)->update($data);
+    }
 }
