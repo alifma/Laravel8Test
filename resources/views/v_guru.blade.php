@@ -1,6 +1,7 @@
 @extends('layout.v_template')
 @section('title', 'Guru')
 @section('content')
+<a href="/guru/add" class="btn btn-primary">Add New Guru</a>
 <table class="table table-bordered">
     <thead>
         <tr>

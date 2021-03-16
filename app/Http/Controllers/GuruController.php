@@ -26,4 +26,19 @@ class GuruController extends Controller
         ];
         return view('v_guruDetail', $data);
     }
+    public function add () {
+        return view('v_guruAdd');
+    }
+
+    public function insert () {
+        Request()->validate ([
+            'nim' => 'required|unique:tbl_guru,nim|min:10|max:11',
+            'nama' => 'required',
+            'mapel' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,bmp,png|max:1024',
+        ],
+    [
+        'nim.required'=> 'NIM Tidak Boleh Kosong!'
+    ]);
+    }
 }
