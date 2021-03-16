@@ -32,10 +32,35 @@
             <td>
                 <a href='/guru/detail/{{$data->id}}' class="btn-sm btn btn-info"> Detail </a>
                 <a href='/guru/edit/{{$data->id}}'  class="btn-sm btn btn-warning"> Edit </a>
-                <button class="btn-sm btn btn-danger"> Hapus </button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id}}">
+                    Delete
+                  </button>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+@foreach ($guru as $data)
+<div class="modal modal-danger fade" id="delete{{$data->id}}">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">{{$data->nama}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>Yakin ingin menghapus data ini?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+          <a href="/guru/delete/{{$data->id}}" type="button" class="btn btn-outline">Confirm</a>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+@endforeach
+
 @endsection
