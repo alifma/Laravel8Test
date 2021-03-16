@@ -22,7 +22,7 @@
             <td>{{$data->mapel}}</td>
             <td><img src="{{url('img/'.$data->image)}}" alt="" class="img-fluid" style="height:100px" srcset=""></td>
             <td>
-                <button class="btn-sm btn btn-info"> Detail </button>
+                <a href='/guru/detail/{{$data->id}}' class="btn-sm btn btn-info"> Detail </a>
                 <button class="btn-sm btn btn-warning"> Edit </button>
                 <button class="btn-sm btn btn-danger"> Hapus </button>
             </td>

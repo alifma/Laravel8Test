@@ -29,9 +29,10 @@ class GuruModel extends Model
     //         ];
     // }
 
-    public function getAll ()
-    {
+    public function getAll () {
         return DB::table('tbl_guru')->get();
-        // return DB::select('select * from tbl_guru where id = ?', [1]);
+    }
+    public function getDetail ($id) {
+        return DB::table('tbl_guru')->where('id', $id)->first();
     }
 }
