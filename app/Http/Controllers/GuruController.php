@@ -37,8 +37,19 @@ class GuruController extends Controller
             'mapel' => 'required',
             'image' => 'required|mimes:jpg,jpeg,bmp,png|max:1024',
         ],
-    [
-        'nim.required'=> 'NIM Tidak Boleh Kosong!'
-    ]);
+        [
+            'nim.required'=> 'NIM Tidak Boleh Kosong!'
+        ]);
+        $file = Request()->image;
+        $fileName = Request()->nip.'.'.$file->extension();
+        $file->move(public_path('img'),$fileName);
+        $data = [
+            'nim' => Request()->nim,
+            'nama' => Request()->name,
+            'mapel' => Request()->mapel,
+            'image' => $fileName
+        ];
+        $this->GuruModel->addData($data);
+        return redirect()->route('guru')->with('pesan', 'Tambah Data Sukses');
     }
 }

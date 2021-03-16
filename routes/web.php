@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/guru', [GuruController::class, 'index']);
+Route::get('/guru', [GuruController::class, 'index'])->name('guru');
 Route::get('/guru/detail/{id}', [GuruController::class, 'detail']);
 Route::get('/guru/add', [GuruController::class, 'add']);
 Route::post('/guru/insert', [GuruController::class, 'insert']);
