@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SiswaModel;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    public function __construct()
+    {
+        $this->SiswaModel = new SiswaModel();
+    }
     public function index() {
-        return view('v_siswa');
+        $data = [
+            'siswa' => $this->SiswaModel->getAll()
+        ];
+        return view('v_siswa', $data);
     }
 }
